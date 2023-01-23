@@ -1,0 +1,42 @@
+html, body {
+  height:100%
+}
+
+body {
+  overflow: scroll;
+  
+}
+
+.gameboard {
+  position: relative;
+  height: 3000px;
+  width: 4240px;
+  background-repeat: no-repeat;
+  background-position: top;
+  
+}
+
+
+.target-circle {
+ height: 150px;
+ width: 150px;
+ border-radius: 50%;
+ border: 5px dashed black;
+ position: absolute;
+ 
+}
+
+
+.drop-down {
+  position: absolute;
+  display:flex;
+  flex-direction: column;
+  background-color: white;
+  
+}
+
+.character-choice {
+  background-color: white;
+  font-size: 32px;
+  border-radius: 10px;
+}
