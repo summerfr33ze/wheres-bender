@@ -17,26 +17,31 @@ body {
 }
 
 
-.target-circle {
- height: 150px;
- width: 150px;
- border-radius: 50%;
- border: 5px dashed black;
- position: absolute;
- 
-}
+
 
 
 .drop-down {
   position: absolute;
-  display:flex;
+  display:none;
   flex-direction: column;
-  background-color: white;
-  
+  background-color: black;
 }
 
 .character-choice {
-  background-color: white;
+  background-color: black;
+  color: white;
+  border: none;
   font-size: 32px;
-  border-radius: 10px;
+  
+}
+
+.score {
+  background-color: green;
+  color: white;
+  position: fixed;
+  font-size: 32px;
+  bottom: 0;
+  right:0;
+  width: 150px;
+  height: 45px;
 }

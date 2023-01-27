@@ -1,48 +1,72 @@
 import background from "../gameboard.png"
+import React, {useState, useEffect, useRef} from "react"
+import { isBrowserExtension } from "@firebase/util"
 
-const handleGameboardOnClick = (event) =>{
-    //select gameboard element and create elements to target characters
-    const gameboard = document.querySelector(".gameboard")
-    const targetCircle = document.createElement("div")
-    const dropDown = document.createElement("div")
-    
 
-    //apply classes to targeting elements
-    targetCircle.className = "target-circle"
-    dropDown.className= "drop-down"
-
-    //make targeting elements appear where mouse is clicked
-    targetCircle.style.left = event.clientX+"px"
-    targetCircle.style.top = event.clientY+"px"
-    dropDown.style.left = event.clientX+200+"px"
-    dropDown.style.top = event.clientY+50+"px"
-
-    //append targeting elements to gameboard
-    gameboard.appendChild(targetCircle)
-    gameboard.appendChild(dropDown)
-    const benderButton = document.createElement("button")
-    benderButton.className = "character-choice"
-    benderButton.textContent = "Bender 'Bending' Rodriguez"
-    dropDown.appendChild(benderButton)
-    const amyButton = document.createElement("button")
-    amyButton.className = "character-choice"
-    amyButton.textContent = "Amy Wong"
-    dropDown.appendChild(amyButton)
-    const scruffyButton = document.createElement("button")
-    scruffyButton.className = "character-choice"
-    scruffyButton.textContent= "Scruffy The Janitor"
-    dropDown.appendChild(scruffyButton)
-  
-  
-  }
 
 function Gameboard(props) {
+
+    const dropDown = useRef(null)
+    const fryButton = useRef(null)
+    const hermesButton = useRef(null)
+    const scruffyButton = useRef(null)
+
+    const [cursorLeft, setCursorLeft] = useState("")
+    const [cursorTop, setCursorTop] = useState("")
+    const [hasPicBeenClicked, setHasPicBeenClicked] = useState(false)
+    const [score, setScore] = useState(0)
+    
+
+    const setCurrentState = (event) => {
+        setHasPicBeenClicked(true)
+        setCursorLeft(event.clientX+window.scrollX+"px")
+        setCursorTop(event.clientY+window.scrollY+"px")
+        console.log(event.clientX+window.scrollX+"px")
+        console.log(event.clientY+window.scrollY+"px")
+    }
+
+    const handleCharacterOnClick = (event) => {
+        event.stopPropagation()
+        
+        if (event.target.id === "scruffyButton" ){
+            if(parseInt(cursorLeft) > 1450 && parseInt(cursorLeft) < 1570 && parseInt(cursorTop) > 2690 && parseInt(cursorTop) < 2890){
+                setScore(score + 1)
+            }
+        }
+        if(event.target.id === "amyButton"){
+            if(parseInt(cursorLeft) > 4060 && parseInt(cursorLeft) < 4200 && parseInt(cursorTop) > 1310 && parseInt(cursorTop) < 1520){
+                setScore(score + 1)
+            }
+        }
+        if(event.target.id === "benderButton"){
+            if(parseInt(cursorLeft) > 1330 && parseInt(cursorLeft) < 1430 && parseInt(cursorTop) > 630 && parseInt(cursorTop) < 820){
+                setScore(score + 1)
+            }
+        }
+    }
+
+
+
+    useEffect(() => {
+        
+        if(hasPicBeenClicked === false) {
+            return
+        }
+        dropDown.current.style.display = "flex"
+        dropDown.current.style.left = cursorLeft
+        dropDown.current.style.top = cursorTop
+    }, [cursorLeft,cursorTop,hasPicBeenClicked])
+
     return(
     
-    <div className="gameboard" style={{ backgroundImage:`url(${background})`}} onClick={event => handleGameboardOnClick(event)}>
-        <div className="bender"></div>
-        <div className="amy"></div>
-        <div className="scruffy"></div>
+    <div className="gameboard" style={{ backgroundImage:`url(${background})`}} onClick={(event) => setCurrentState(event)}>
+        <div className="drop-down" ref={dropDown} >
+            <button className="character-choice" id="fryButton" ref={fryButton} onClick={(event) => handleCharacterOnClick(event)}>Phillip J Fry</button>
+            <button className="character-choice" id="hermesButton" ref={hermesButton} onClick={(event) => handleCharacterOnClick(event)}>Hermes</button>
+            <button className="character-choice" id="scruffyButton" ref={scruffyButton} onClick={(event) => handleCharacterOnClick(event)} >Scruffy</button>
+        </div>
+        <div className="score">Score: <span>{score}</span></div>
+        
     </div>
     
     ) 

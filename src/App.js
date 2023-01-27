@@ -3,8 +3,7 @@ import './App.css';
 import './gameboard.png'
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import React, {useState} from "react"
-import {useEffect} from "react"
+import React, {useState, useEffect} from "react"
 import TitleScreen from './components/title-screen.js'
 import Gameboard from './components/gameboard.js'
 import {Routes, Route, useNavigate} from 'react-router-dom'
