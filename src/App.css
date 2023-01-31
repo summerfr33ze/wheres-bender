@@ -1,3 +1,58 @@
+@font-face {
+  font-family: fr-bold;
+  src: url(./fonts/futurama/fr-bold.ttf)
+}
+
+
+.title-screen {
+  background-color: #13274F;
+  color: white;
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+  gap: 100px;
+}
+
+
+.title {
+  font-family: fr-bold;
+  font-size: 5rem;
+}
+
+.summary{
+  font-family: fr-bold;
+  font-size: 2rem;
+  width: 600px;
+}
+
+.character-images {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.character-images img {
+  border: 2px solid red;
+  height: 225px;
+}
+
+.start-game, .to-scoreboard {
+  background-color: red;
+  border-radius: 15px;
+  font-weight: bold;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 32px;
+}
+
+
+
 html, body {
   height:100%
 }
@@ -23,25 +78,82 @@ body {
 .drop-down {
   position: absolute;
   display:none;
-  flex-direction: column;
+  flex-direction: column;;
+  border-radius: 30px;
   background-color: black;
+  padding: 10px;
+  border: 2px solid red;
 }
 
 .character-choice {
+  font-family: fr-bold;
   background-color: black;
   color: white;
   border: none;
-  font-size: 32px;
+  border-radius: 30px;
+  font-size: 16px;
+
   
 }
 
 .score {
-  background-color: green;
+  background-color: black;
   color: white;
   position: fixed;
   font-size: 32px;
   bottom: 0;
   right:0;
-  width: 150px;
+  padding: 5px;
+  border-radius: 20px 0px 0px 20px;
   height: 45px;
+  border: 2px solid blue;
+  border-right: none;
+  margin-bottom: 10px;
+}
+
+.timer {
+  background-color: black;
+  color: white;
+  position:fixed;
+  font-size: 32px;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  border-radius: 0px 20px 20px 0px;
+  height: 45px;
+  display: flex;
+  gap: 10px;
+  border: 2px solid red;
+  border-left: none;
+  margin-bottom: 10px;
+}
+
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content:center;
+  align-items: center;
+  gap: 50px;
+  background-color: #13274F;
+  color: white;
+  font-size: 2rem;
+  font-family: fr-bold;
+}
+
+.leaderboard-title {
+  font-size: 3rem;
+}
+
+.leaderboard-list {
+  display: flex;
+  justify-content: center;
+  border: 3px solid #B80F0A;
+  border-radius: 10px;
+  height: 60vh;
+  padding: 40px;
+}
+
+.leaderboard-list li {
+  
 }
