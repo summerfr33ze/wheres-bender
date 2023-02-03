@@ -6,8 +6,9 @@
 
 .title-screen {
   background-color: #13274F;
+  overflow: hidden;
   color: white;
-  height: 100vh;
+  height: 110vh;
   display:flex;
   flex-direction: column;
   justify-content:center;
@@ -51,7 +52,14 @@
   font-size: 32px;
 }
 
+.start-game {
+  margin-bottom: 25px;
+  display:block;
+}
 
+.to-scoreboard {
+  padding: 15px 27px;
+}
 
 html, body {
   height:100%

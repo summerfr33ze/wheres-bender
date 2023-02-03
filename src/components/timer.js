@@ -10,20 +10,22 @@ import { getFirestore, collection, getDocs, getDoc, doc, docs, setDoc, addDoc, l
     const [hasBeenPrompted, setHasBeenPrompted] = useState(false)
     const [isHighScore, setIsHighScore] = useState(false)
 
-    async function getHighScores () {
-    const querySnapshot = await getDocs(collection(db, "leaderboard"))
-    querySnapshot.forEach(
-        (doc) => { if((hr <= doc.data().hours && min <= doc.data().minutes && sec <= doc.data().seconds) || querySnapshot.length < 10) {
-            setIsHighScore(true)
-        }
-        }
-    )  
-    }
+    
 
     useEffect(() => {
+        async function getHighScores () {
+            const querySnapshot = await getDocs(collection(db, "leaderboard"))
+            querySnapshot.forEach(
+                (doc) => { if((hr <= doc.data().hours && min <= doc.data().minutes && sec <= doc.data().seconds) || querySnapshot.length < 10) {
+                    setIsHighScore(true)
+                }
+                }
+            )  
+            }
+
 
         const interval = setInterval(()=> {
-            if (props.score < 3){
+            if (props.score < 4){
                 setSec(sec => sec + 1)
             if (sec == 59){
                 setMin(min => min + 1)
@@ -59,7 +61,7 @@ import { getFirestore, collection, getDocs, getDoc, doc, docs, setDoc, addDoc, l
         }, 1000)
 
         return () => clearInterval(interval)
-},[hr, min, sec, props.score,hasBeenPrompted,isHighScore, getHighScores])
+},[hr, min, sec, props.score,hasBeenPrompted,isHighScore])
 
     return (
         <div className="timer">

@@ -14,6 +14,7 @@ import Timer from './timer.js'
 function Gameboard(props) {
 
     const dropDown = useRef(null)
+    const benderButton = useRef(null)
     const fryButton = useRef(null)
     const hermesButton = useRef(null)
     const scruffyButton = useRef(null)
@@ -29,7 +30,7 @@ function Gameboard(props) {
     const scruffy = doc(db, 'Character Coordinates/Scruffy')
     const hermes = doc(db, 'Character Coordinates/Hermes')
     const fry = doc(db, 'Character Coordinates/Fry')
-
+    const bender = doc(db, 'Character Coordinates/Bender')
     
     
         
@@ -84,6 +85,19 @@ function Gameboard(props) {
                 console.log("Document does not exist")
             }
         }
+        if(event.target.id === "benderButton"){
+            const docSnap = await getDoc(bender);
+            if(docSnap.exists()) {
+                if(cursorLeft > docSnap.data().Left && cursorLeft < docSnap.data().Right && cursorTop > docSnap.data().Top && cursorTop < docSnap.data().Bottom){
+                    if(hasFryBeenClicked === false){
+                        setScore(score + 1)
+                    }
+                    setHasFryBeenClicked(true)
+                }
+            } else {
+                console.log("Document does not exist")
+            }
+        }
     }
 
     
@@ -109,6 +123,7 @@ function Gameboard(props) {
     
     <div className="gameboard" style={{ backgroundImage:`url(${background})`}} onClick={(event) => setCurrentState(event)}>
         <div className="drop-down" ref={dropDown} >
+        <button className="character-choice" id="benderButton" ref={benderButton} onClick={(event) => handleCharacterOnClick(event)}>Bender</button>
             <button className="character-choice" id="fryButton" ref={fryButton} onClick={(event) => handleCharacterOnClick(event)}>Phillip J Fry</button>
             <button className="character-choice" id="hermesButton" ref={hermesButton} onClick={(event) => handleCharacterOnClick(event)}>Hermes</button>
             <button className="character-choice" id="scruffyButton" ref={scruffyButton} onClick={(event) => handleCharacterOnClick(event)} >Scruffy</button>
