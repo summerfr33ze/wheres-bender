@@ -10,6 +10,7 @@ import { getFirestore, collection, getDocs, getDoc, doc, docs, setDoc, addDoc, l
     const [hasBeenPrompted, setHasBeenPrompted] = useState(false)
     const [isHighScore, setIsHighScore] = useState(false)
 
+  
     
 
     useEffect(() => {

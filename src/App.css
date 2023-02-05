@@ -6,37 +6,36 @@
 
 .title-screen {
   background-color: #13274F;
-  overflow: hidden;
   color: white;
   height: 110vh;
   display:flex;
   flex-direction: column;
   justify-content:center;
   align-items: center;
-  gap: 100px;
+  gap: 5vh;
 }
 
 
 .title {
   font-family: fr-bold;
-  font-size: 5rem;
+  font-size: 4rem;
 }
 
 .summary{
   font-family: fr-bold;
   font-size: 2rem;
-  width: 600px;
+  width: 50vw;
 }
 
 .character-images {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 3vw;
 }
 
 .character-images img {
   border: 2px solid red;
-  height: 225px;
+  height: 25vh;
 }
 
 .start-game, .to-scoreboard {
@@ -62,7 +61,7 @@
 }
 
 html, body {
-  height:100%
+  height: 100vh;
 }
 
 body {
