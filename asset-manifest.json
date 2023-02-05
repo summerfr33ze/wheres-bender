@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/wheres-bender/static/css/main.2290158b.css",
+    "main.js": "/wheres-bender/static/js/main.1f4c4653.js",
+    "static/media/gameboard.png": "/wheres-bender/static/media/gameboard.0e58972f082fa9405ad3.png",
+    "static/media/bender.png": "/wheres-bender/static/media/bender.d434c16cbdecc74fd700.png",
+    "static/media/hermes.png": "/wheres-bender/static/media/hermes.2c2fe039d347c053724c.png",
+    "static/media/fry.png": "/wheres-bender/static/media/fry.48a0603880ba39e3e2f2.png",
+    "static/media/scruffy.png": "/wheres-bender/static/media/scruffy.194d3085830dbec6be88.png",
+    "static/media/fr-bold.ttf": "/wheres-bender/static/media/fr-bold.e7dc0e7da5d0b6b85264.ttf",
+    "index.html": "/wheres-bender/index.html",
+    "main.2290158b.css.map": "/wheres-bender/static/css/main.2290158b.css.map",
+    "main.1f4c4653.js.map": "/wheres-bender/static/js/main.1f4c4653.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2290158b.css",
+    "static/js/main.1f4c4653.js"
+  ]
+}
